@@ -155,7 +155,7 @@ class RSACipher18Implementation {
         try {
             kpGenerator.initialize(spec);
             kpGenerator.generateKeyPair();
-        } catch (StrongBoxUnavailableException se) {
+        } catch (Exception se) {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
                 if (se instanceof StrongBoxUnavailableException) {
                     spec = new KeyGenParameterSpec.Builder(KEY_ALIAS, KeyProperties.PURPOSE_DECRYPT | KeyProperties.PURPOSE_ENCRYPT)
